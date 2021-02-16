@@ -1,5 +1,69 @@
 table,
 th,
 td {
-  border: 1px solid black;
+  font-size: xx-large;
+  font-family:monospace;
+  color: #e72666;
+  border: 1px solid rgb(202, 140, 178);
+}
+
+header  {
+  font-family: serif;
+  color: #e72666;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size:xx-large;
+  color: f 1f 1f 1px;
+}
+main nav ul li {
+  display:unset;
+  color: #e72666;
+  font-family:serif;
+  font-size: large;
+  padding: 50px;
+}
+main p {
+  color: #e72666;
+  font-family:serif;
+  font-size: xx-large;
+  text-align: center;
+  padding: 30px;
+}
+
+#fish{
+  margin: 0px 0 10px 10px;
+
+}
+main div img {
+  border-radius: 50%;
+  float: left;
+  margin: 100px 0 10px 10px;
+}
+main section img {
+
+  border-radius: 50%;
+  margin: 100px 0 10px 10px;
+}
+main section {
+  
+color: #e72666;
+font-size:xx-large;
+text-align: center;
+}
+
+
+footer {
+  text-align:center;
+  clear: both;
+  padding: 20px;
+  bottom: 0;
+  width: 100%;
+  color: #e72666;
+}
+
+body {
+  background-image: url("https://wallpapertag.com/wallpaper/full/2/0/e/526093-best-cool-fish-backgrounds-1920x1200-phone.jpg");
+  background-repeat: no-repeat;
+              background-size:cover;
 }
