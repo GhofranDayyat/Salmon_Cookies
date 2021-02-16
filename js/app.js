@@ -2,7 +2,7 @@
 function getRandomNo(min, max) {
   return Math.floor((Math.random() * (max - min + 1)) + min);
 }
-const footArr=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+const totalOfTotal=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
 const timeArr=['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'];
 const divEl = document.getElementById('cookieStand');
@@ -45,12 +45,12 @@ Stor.prototype.render =function () {
   tableEl.appendChild(dataRowEl);
   const dataCellEl = document.createElement('td');
   dataRowEl.appendChild(dataCellEl);
-  dataCellEl.textContent = `${this.location}`;
+  dataCellEl.textContent = this.loacation;
   for (let i = 0; i < this.cookiePurArray.length; i++) {
     const dataCellEl = document.createElement('td');
     dataRowEl.appendChild(dataCellEl);
     dataCellEl.textContent = this.cookiePurArray[i];
-    footArr[i]+=this.cookiePurArray[i];
+    totalOfTotal[i]+=this.cookiePurArray[i];
   }
 };
 
@@ -100,8 +100,8 @@ tableEl.appendChild(footRowEl);
 const footCellEl = document.createElement('th');
 footRowEl.appendChild(footCellEl);
 footCellEl.textContent='Total';
-for (let i = 0; i < footArr.length; i++) {
+for (let i = 0; i < totalOfTotal.length; i++) {
   const footCellEl = document.createElement('th');
   footRowEl.appendChild(footCellEl);
-  footCellEl.textContent = footArr[i];
+  footCellEl.textContent = totalOfTotal[i];
 }
