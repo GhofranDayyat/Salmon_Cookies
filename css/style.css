@@ -1,12 +1,17 @@
 table,
 th,
-td {
-  font-size: xx-large;
+td ,
+main fieldset{
+  font-size: x-large;
   font-family:monospace;
-  color: #e72666;
-  border: 1px solid rgb(202, 140, 178);
-}
+  color: #ebe5e7;
+  border: 1px solid rgb(243, 240, 242);
+  /* background-color: rgb(3, 9, 12); */
+height: unset;
+padding: 20px;}
 
+
+}
 header  {
   font-family: serif;
   color: #e72666;

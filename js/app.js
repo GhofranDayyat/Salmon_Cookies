@@ -95,13 +95,41 @@ const lima =new Stor(
 );
 lima.render();
 
-const footRowEl = document.createElement('tr');
-tableEl.appendChild(footRowEl);
-const footCellEl = document.createElement('th');
-footRowEl.appendChild(footCellEl);
-footCellEl.textContent='Total';
-for (let i = 0; i < totalOfTotal.length; i++) {
+
+
+
+
+
+const form = document.getElementById('salmon-form');
+form.addEventListener('submit', function(event){
+  event.preventDefault();
+  const loacation = event.target.loacation.value;
+
+  const min = parseFloat(event.target.min.value);
+
+  const max = parseFloat(event.target.max.value);
+
+  const avgCookie = parseFloat(event.target.avgCookie.value);
+
+  //to check that the type of min is number
+  console.log(typeof(min));
+
+
+  const newStor = new Stor (loacation,min,max,avgCookie,[],[]);
+
+  newStor.getCookiePerCust();
+  newStor.render();
+  form.reset();
+  const footRowEl = document.createElement('tr');
+  tableEl.appendChild(footRowEl);
   const footCellEl = document.createElement('th');
   footRowEl.appendChild(footCellEl);
-  footCellEl.textContent = totalOfTotal[i];
-}
+  footCellEl.textContent='Total';
+  for (let i = 0; i < totalOfTotal.length; i++) {
+    const footCellEl = document.createElement('th');
+    footRowEl.appendChild(footCellEl);
+    footCellEl.textContent = totalOfTotal[i];
+  }
+});
+
+
