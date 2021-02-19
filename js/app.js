@@ -96,10 +96,19 @@ const lima =new Stor(
 );
 lima.render();
 
-
-
-
-
+function footerRow(){
+  const footRowEl = document.createElement('tr');
+  tableEl.appendChild(footRowEl);
+  const footCellEl = document.createElement('th');
+  footRowEl.appendChild(footCellEl);
+  footCellEl.textContent='Total';
+  for (let i = 0; i < totalOfTotal.length; i++) {
+    const footCellEl = document.createElement('th');
+    footRowEl.appendChild(footCellEl);
+    footCellEl.textContent = totalOfTotal[i];
+  }
+}
+footerRow();
 
 const form = document.getElementById('salmon-form');
 form.addEventListener('submit', function(event){
@@ -116,8 +125,8 @@ form.addEventListener('submit', function(event){
   console.log(typeof(min));
 
 
-  const newStor = new Stor (loacation,min,max,avgCookie,[],[]);
 
+  const newStor = new Stor (loacation,min,max,avgCookie,[],[]);
   //delet the footer
   tableEl.deleteRow(-1);
 
@@ -125,17 +134,11 @@ form.addEventListener('submit', function(event){
   newStor.render();
 
   //render the footer
+  footerRow();
+
   form.reset();
-  const footRowEl = document.createElement('tr');
-  tableEl.appendChild(footRowEl);
-  const footCellEl = document.createElement('th');
-  footRowEl.appendChild(footCellEl);
-  footCellEl.textContent='Total';
-  for (let i = 0; i < totalOfTotal.length; i++) {
-    const footCellEl = document.createElement('th');
-    footRowEl.appendChild(footCellEl);
-    footCellEl.textContent = totalOfTotal[i];
-  }
+ 
+
 });
 
 
