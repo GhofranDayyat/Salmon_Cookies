@@ -52,6 +52,7 @@ Stor.prototype.render =function () {
     dataCellEl.textContent = this.cookiePurArray[i];
     totalOfTotal[i]+=this.cookiePurArray[i];
   }
+
 };
 
 const seattle = new Stor(
@@ -117,8 +118,13 @@ form.addEventListener('submit', function(event){
 
   const newStor = new Stor (loacation,min,max,avgCookie,[],[]);
 
-  newStor.getCookiePerCust();
+  //delet the footer
+  tableEl.deleteRow(-1);
+
+  //render the new stor
   newStor.render();
+
+  //render the footer
   form.reset();
   const footRowEl = document.createElement('tr');
   tableEl.appendChild(footRowEl);
