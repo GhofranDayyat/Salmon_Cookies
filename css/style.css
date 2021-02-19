@@ -2,8 +2,8 @@ table,
 th,
 td ,
 main fieldset{
-  font-size: x-large;
-  font-family:monospace;
+  font-size: large;
+  font-family: Arial;
   color: #ebe5e7;
   border: 1px solid rgb(243, 240, 242);
 height: unset;
@@ -19,16 +19,16 @@ padding: 20px;}
   color: f 1f 1f 1px;
 }
 main nav ul li {
-  display:unset;
+  display: unset;
   color: #e72666;
   font-family:serif;
   font-size: large;
   padding: 50px;
 }
 main p {
-  color: #e72666;
-  font-family:serif;
-  font-size: xx-large;
+  color: #e7ca26;
+  font-family: 'Times New Roman';
+  font-size: x-large;
   text-align: center;
   padding: 30px;
 }
@@ -49,8 +49,6 @@ main section img {
 }
 main section {
   
-color: #e72666;
-font-size:xx-large;
 text-align: center;
 }
 
@@ -61,7 +59,7 @@ footer {
   padding: 20px;
   bottom: 0;
   width: 100%;
-  color: #e72666;
+  color: #e7ca26;
 }
 
 body {
