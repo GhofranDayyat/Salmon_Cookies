@@ -1,10 +1,15 @@
 'use strict';
+
+//hulpper function to calc the number of customer
 function getRandomNo(min, max) {
   return Math.floor((Math.random() * (max - min + 1)) + min);
 }
-const totalOfTotal=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
+//fixed array
+const totalOfTotal=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 const timeArr=['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'];
+
+//creat header of the table
 const divEl = document.getElementById('cookieStand');
 const tableEl = document.createElement('table');
 divEl.appendChild(tableEl);
@@ -17,10 +22,9 @@ for (let i = 0; i < timeArr.length; i++) {
   let thEl = document.createElement('th');
   headerRowEl.appendChild(thEl);
   thEl.textContent = `${timeArr[i]}`;
-
 }
 
-
+//Stor object
 function Stor (loacation, min, max, avgCookie, cookiePurArray, total){
   this.loacation = loacation;
   this.min = min;
@@ -30,15 +34,17 @@ function Stor (loacation, min, max, avgCookie, cookiePurArray, total){
   this.sum = 0;
   this.total = total;
 }
+
+//getCookiePerCust method to calc number of cookie/hour
 Stor.prototype.getCookiePerCust= function (){
   for (let i = 0; i < (timeArr.length - 1); i++) {
     this.cookiePurArray[i] = Math.floor(getRandomNo(this.min, this.max) * this.avgCookie);
     this.sum += this.cookiePurArray[i];
-
   }
   this.cookiePurArray[14] = this.sum;
 };
 
+//rnder method to create tabel body
 Stor.prototype.render =function () {
   this.getCookiePerCust();
   const dataRowEl = document.createElement('tr');
@@ -55,6 +61,8 @@ Stor.prototype.render =function () {
 
 };
 
+
+//input stors value by new && render for each one
 const seattle = new Stor(
   'Seattle',
   23,
@@ -96,6 +104,8 @@ const lima =new Stor(
 );
 lima.render();
 
+
+//footer function && first render
 function footerRow(){
   const footRowEl = document.createElement('tr');
   tableEl.appendChild(footRowEl);
@@ -110,13 +120,14 @@ function footerRow(){
 }
 footerRow();
 
+//event function
 const form = document.getElementById('salmon-form');
 form.addEventListener('submit', function(event){
-  event.preventDefault();
+  event.preventDefault(); //to prevent the default behavior
   const loacation = event.target.loacation.value;
 
   const min = parseFloat(event.target.min.value);
-
+  //to convert the user input to integer and decimal
   const max = parseFloat(event.target.max.value);
 
   const avgCookie = parseFloat(event.target.avgCookie.value);
@@ -125,7 +136,7 @@ form.addEventListener('submit', function(event){
   console.log(typeof(min));
 
 
-
+  //creat new stor with user input
   const newStor = new Stor (loacation,min,max,avgCookie,[],[]);
   //delet the footer
   tableEl.deleteRow(-1);
@@ -137,8 +148,6 @@ form.addEventListener('submit', function(event){
   footerRow();
 
   form.reset();
- 
-
 });
 
 
